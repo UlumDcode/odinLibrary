@@ -27,22 +27,18 @@ function displayBooks() {
   book.forEach((item, index) => {
     const card = document.createElement("div");
     card.classList.add("card");
-
-    const buttonLabels = ["Remove", "Edit", "Read"];
-
-    const buttonsHTML = buttonLabels
-      .map(
-        (label) =>
-          `<button data-index="${index}" class="btn-card">${label}</button>`,
-      )
-      .join("");
+    const readBtnText = item.read ? "Unread" : "Read";
 
     card.innerHTML = `
       <h3>${item.title}</h3>
       <p>Author: ${item.author}</p>
       <p>Pages: ${item.pages} pages</p>
       <p>Status: ${item.read ? "Already Read" : "Not Read Yet"}</p>
-      <div class="btn-group">${buttonsHTML}</div>
+      <div class="btn-group">
+        <button data-index="${index}" class="btn-card">Remove</button>
+        <button data-index="${index}" class="btn-card">Edit</button>
+        <button data-index="${index}" class="btn-card">${readBtnText}</button> 
+      </div>
     `;
     main.appendChild(card);
   });
@@ -73,6 +69,10 @@ main.addEventListener("click", (e) => {
         break;
         break;
       case "Read":
+        book[index].read = !book[index].read;
+        displayBooks();
+        break;
+      case "Unread":
         book[index].read = !book[index].read;
         displayBooks();
         break;
