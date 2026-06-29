@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="img/odin-logo.png" />
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Odin Library</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap");
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img src="img/odin-logo.png" alt="Odin Library Logo" />
+        <h1>Odin Library</h1>
+      </div>
+
+      <button id="books" class="books">Add Books</button>
+    </header>
+
+    <main></main>
+
+    <dialog id="bookModal">
+      <form id="bookForm">
+        <h2 id="modalTitle">Add New Book</h2>
+        <input type="hidden" id="editIndex" />
+        <input type="text" id="title" placeholder="Title" required />
+        <input type="text" id="author" placeholder="Author" required />
+        <input type="number" id="pages" placeholder="Pages" required />
+        <label> <input type="checkbox" id="read" /> Read? </label>
+
+        <div class="modal-buttons">
+          <button type="button" onclick="saveBook()">Save</button>
+          <button
+            type="button"
+            id="closeModal"
+            onclick="document.getElementById('bookModal').close()"
+          >
+            Cancel
+          </button>
+        </div>
+      </form>
+    </dialog>
+
+    <footer>
+      <h4>© 2026 Odin Library. All rights reserved.</h4>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
