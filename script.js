@@ -15,7 +15,7 @@ function books(title, author, pages, read) {
 // Membuat object buku baru
 const buku1 = new books("The Hobbit", "J.R.R. Tolkien", 295, false);
 const buku2 = new books("Harry Potter", "J.K. Rowling", 300, true);
-const buku3 = new books("Dzikir Ilalang", "Andi Bombang", 100, true); // Memasukkan ke dalam array
+const buku3 = new books("Dzikir Ilalang", "Andi Bombang", 100, true);
 book.push(buku1);
 book.push(buku2);
 book.push(buku3);
@@ -87,32 +87,26 @@ addBookBtn.addEventListener("click", () => {
   const modal = document.getElementById("bookModal");
 
   modalTitle.innerText = "Add New Book";
-  editIndexInput.value = -1; // -1 = mode tambah baru
+  editIndexInput.value = -1;
   bookForm.reset();
   modal.showModal();
 });
 
 function saveBook() {
-  // 1. Ambil nilai dari input
+  // Ambil nilai dari input
   const title = document.getElementById("title").value;
   const author = document.getElementById("author").value;
   const pages = document.getElementById("pages").value;
   const read = document.getElementById("read").checked;
-  const index = document.getElementById("editIndex").value; // Ambil index dari hidden input
+  const index = document.getElementById("editIndex").value;
 
-  // 2. Buat objek buku baru
   const newBook = { title, author, pages, read };
 
-  // 3. Logika Tambah atau Edit
   if (index == -1) {
-    // Mode Tambah: push ke array
     book.push(newBook);
   } else {
-    // Mode Edit: timpa data lama
     book[index] = newBook;
   }
-
-  // 4. Update tampilan dan tutup dialog
   displayBooks();
   document.getElementById("bookModal").close();
 }
