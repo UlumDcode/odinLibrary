@@ -12,14 +12,35 @@
   </head>
   <body>
     <header>
-      <img src="img/odin-logo.png" alt="" />
-      <h1>Odin Library</h1>
-      <h3>Books</h3>
+      <div class="logo">
+        <img src="img/odin-logo.png" alt="Odin Library Logo" />
+        <h1>Odin Library</h1>
+      </div>
+
+      <button id="books" class="books">Add Books</button>
     </header>
 
     <main></main>
 
-    <footer></footer>
+    <dialog id="bookModal">
+      <form id="bookForm">
+        <h2 id="modalTitle">Add New Book</h2>
+        <input type="hidden" id="editIndex" />
+        <input type="text" id="title" placeholder="Title" required />
+        <input type="text" id="author" placeholder="Author" required />
+        <input type="number" id="pages" placeholder="Pages" required />
+        <label> <input type="checkbox" id="read" /> Read? </label>
+
+        <div class="modal-buttons">
+          <button type="submit">Save</button>
+          <button type="button" id="closeModal">Cancel</button>
+        </div>
+      </form>
+    </dialog>
+
+    <footer>
+      <h4>© 2026 Odin Library. All rights reserved.</h4>
+    </footer>
 
     <script src="script.js"></script>
   </body>

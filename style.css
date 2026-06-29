@@ -15,11 +15,36 @@ header {
   align-items: center;
   border-bottom: 3px solid #d4af37; /* Aksen warna emas */
 }
-
-header > img {
+.logo > img {
   height: 50px;
   width: auto;
   vertical-align: middle; /* Membuat logo sejajar vertikal dengan teks di sebelahnya */
+}
+
+.logo {
+  display: flex;
+  align-items: center; /* Menjaga logo dan teks sejajar vertikal */
+  gap: 15px; /* Memberi jarak 15px antara gambar dan teks */
+}
+
+.books {
+  background-color: #d4af37; /* Warna emas agar senada dengan border */
+  color: #2f4f4f; /* Warna teks gelap */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.books:hover {
+  background-color: #b8952f;
+  transform: scale(1.05);
+}
+
+.books:active {
+  transform: scale(0.98); /* Sedikit mengecil saat ditekan */
 }
 
 /* Styling Footer */
@@ -41,5 +66,79 @@ body {
 }
 
 main {
-  flex: 1; /* Mengisi ruang kosong */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  padding: 40px;
+  justify-content: flex-start;
+  background-color: white;
+}
+
+/* Styling main dan card*/
+
+.card {
+  width: 250px;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: #e0e0ea;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  /* border-left: 6px solid #596d48; */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.btn-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.btn-card {
+  background-color: #d4af37;
+  color: #2f4f4f;
+  border: none;
+  padding: 8px 5px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  flex: 1;
+  font-size: 12px;
+}
+
+.btn-card:hover {
+  background-color: #b8952f;
+  transform: scale(1.05);
+}
+
+.btn-card:active {
+  transform: scale(0.98);
+}
+
+/* Styling Dialog Modal  */
+dialog {
+  padding: 20px;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  width: 300px;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
