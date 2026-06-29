@@ -1,6 +1,7 @@
 const main = document.querySelector("main");
 const bookForm = document.getElementById("bookForm");
 const editIndexInput = document.getElementById("editIndex");
+const addBookBtn = document.getElementById("books");
 
 const book = [];
 
@@ -58,7 +59,18 @@ main.addEventListener("click", (e) => {
         displayBooks();
         break;
       case "Edit":
-        console.log(`tombol ${action} ditekan pada index ${index}`);
+        const bookToEdit = book[index];
+
+        document.getElementById("title").value = bookToEdit.title;
+        document.getElementById("author").value = bookToEdit.author;
+        document.getElementById("pages").value = bookToEdit.pages;
+        document.getElementById("read").checked = bookToEdit.read;
+
+        document.getElementById("editIndex").value = index;
+        document.getElementById("modalTitle").innerText = "Edit Book";
+
+        document.getElementById("bookModal").showModal();
+        break;
         break;
       case "Read":
         book[index].read = !book[index].read;
@@ -68,13 +80,10 @@ main.addEventListener("click", (e) => {
   }
 });
 
-// Hapus tanda titik (.) karena getElementById mencari berdasarkan ID langsung
-const addBookBtn = document.getElementById("books");
-
 addBookBtn.addEventListener("click", () => {
-  const modalTitle = document.getElementById("modalTitle"); // Pastikan ID ini ada di modal
-  const editIndexInput = document.getElementById("editIndex"); // Pastikan ID ini ada di modal
-  const bookForm = document.getElementById("bookForm"); // Pastikan ID ini ada di modal
+  const modalTitle = document.getElementById("modalTitle");
+  const editIndexInput = document.getElementById("editIndex");
+  const bookForm = document.getElementById("bookForm");
   const modal = document.getElementById("bookModal");
 
   modalTitle.innerText = "Add New Book";
@@ -82,3 +91,28 @@ addBookBtn.addEventListener("click", () => {
   bookForm.reset();
   modal.showModal();
 });
+
+function saveBook() {
+  // 1. Ambil nilai dari input
+  const title = document.getElementById("title").value;
+  const author = document.getElementById("author").value;
+  const pages = document.getElementById("pages").value;
+  const read = document.getElementById("read").checked;
+  const index = document.getElementById("editIndex").value; // Ambil index dari hidden input
+
+  // 2. Buat objek buku baru
+  const newBook = { title, author, pages, read };
+
+  // 3. Logika Tambah atau Edit
+  if (index == -1) {
+    // Mode Tambah: push ke array
+    book.push(newBook);
+  } else {
+    // Mode Edit: timpa data lama
+    book[index] = newBook;
+  }
+
+  // 4. Update tampilan dan tutup dialog
+  displayBooks();
+  document.getElementById("bookModal").close();
+}

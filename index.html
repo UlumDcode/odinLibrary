@@ -32,8 +32,14 @@
         <label> <input type="checkbox" id="read" /> Read? </label>
 
         <div class="modal-buttons">
-          <button type="submit">Save</button>
-          <button type="button" id="closeModal">Cancel</button>
+          <button type="button" onclick="saveBook()">Save</button>
+          <button
+            type="button"
+            id="closeModal"
+            onclick="document.getElementById('bookModal').close()"
+          >
+            Cancel
+          </button>
         </div>
       </form>
     </dialog>
