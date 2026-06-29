@@ -1,7 +1,45 @@
 * {
   padding: 0px;
   margin: 0px;
-  color: black;
   box-sizing: border-box;
   font-family: "MedievalSharp", cursive;
+}
+
+/* Styling Header */
+header {
+  background-color: #2f4f4f; /* Warna contoh */
+  color: #f5f5dc;
+  padding: 20px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid #d4af37; /* Aksen warna emas */
+}
+
+header > img {
+  height: 50px;
+  width: auto;
+  vertical-align: middle; /* Membuat logo sejajar vertikal dengan teks di sebelahnya */
+}
+
+/* Styling Footer */
+footer {
+  background-color: #2f4f4f;
+  color: #f5f5dc;
+  padding: 20px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Styling Body agar tidak tertutup footer */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1; /* Mengisi ruang kosong */
 }
